@@ -1,1 +1,3 @@
-export { default as generateSignature } from "./generate";
+// src\controllers\index.ts
+
+export { default as fetchNFTMetadata } from "./fetchNFTMetadata";

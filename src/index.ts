@@ -1,23 +1,23 @@
-import express, { Application, Request, Response } from "express";
+import express, { Application } from "express";
 import dotenv from "dotenv";
-import router from "./routes/router";
+import router from "./routes/router"; // Update the import
 
 dotenv.config();
 
 const app: Application = express();
 
-app.get("/", (_req: Request, res: Response) => {
+app.get("/", (_req, res) => {
   return res.status(200).json({
-    message: "gm",
+    message: "Welcome to the NFT metadata API",
   });
 });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use("/", router);
+app.use("/api", router); // Update the base path
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 9400;
 
-app.listen(port, async () => {
-  console.log(`The server is up and running at ${port}.`);
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });

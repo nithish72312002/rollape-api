@@ -1,8 +1,8 @@
 import express, { Router } from "express";
-import { generateSignature } from "../controllers";
+import { fetchNFTMetadata } from "../controllers"; // Update the import
 
 const router: Router = express.Router();
 
-router.post("/generate", generateSignature);
+router.get("/nft-metadata/:tokenId", fetchNFTMetadata); // Update the route
 
 export default router;
